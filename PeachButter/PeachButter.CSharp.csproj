@@ -63,8 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Automove.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
+    <ProjectReference Include="PeachButter.CSharp.Plugins.csproj">
+      <Project>{A4149D43-C15D-5724-5121-31D8DAC8C2CB}</Project>
+      <Name>PeachButter.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Scripts\Automove.cs" />
+    <Compile Include="Assets\Scripts\BulletDestroyer.cs" />
+    <Compile Include="Assets\Scripts\BulletsPool.cs" />
+    <Compile Include="Assets\Scripts\CurveOfDeath.cs" />
+    <Compile Include="Assets\Scripts\FireBullets.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

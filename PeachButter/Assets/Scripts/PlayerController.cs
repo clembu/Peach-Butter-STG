@@ -11,26 +11,37 @@ public class PlayerController : MonoBehaviour {
 
     public Transform shotSpawn2;
 
-    public GameObject shot;
+    public Transform spiralSpawn;
+    
+    public Animator anim;
 
-    public float fireRate = 0.5f;
-
-    float nextFire = 0.0f;
-
-	// Use this for initialization
-	void Start () {
+    public CurveOfDeath rod;
+        
+    // Use this for initialization
+    void Start () {
         rb2d = GetComponent<Rigidbody2D>();
+        
 	}
 	
     void Update()
     {
         bool input = Input.GetButton("Fire1");
 
-        if (input && Time.time > nextFire)
+        shotSpawn1.GetComponent<FireBullets>().Fire = input;
+        shotSpawn2.GetComponent<FireBullets>().Fire = input;
+
+        bool skillinput = Input.GetButtonDown("Fire2");
+
+        if (skillinput)
         {
-            nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
-            Instantiate(shot, shotSpawn2.position, shotSpawn2.rotation);
+            anim.SetTrigger("SkillActivated");
+        }
+
+        bool ringinput = Input.GetButtonDown("Fire3");
+
+        if(ringinput)
+        {
+            rod.Fire();
         }
     }
 
