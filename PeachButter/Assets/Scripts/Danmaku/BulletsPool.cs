@@ -20,9 +20,23 @@ public class BulletsPool : MonoBehaviour {
             pool.Add(go);
         }
 	}
+
+    public GameObject Bullet
+    {
+        get
+        {
+            if (pool == null) return null;
+
+            for (int i = 0; i < pool.Count; i++)
+            {
+                if (!pool[i].activeInHierarchy) return pool[i];
+            }
+
+            return null;
+        }
+    }
 	
-	
-    public GameObject GetBullet()
+	public GameObject GetBullet()
     {
         for (int i = 0; i < pool.Count; i++)
         {

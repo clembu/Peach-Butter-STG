@@ -7,41 +7,42 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb2d;
 
-    public Transform shotSpawn1;
+    public Emmiter emitter;
 
-    public Transform shotSpawn2;
-
-    public Transform spiralSpawn;
+    public Animator Skill1;
     
-    public Animator anim;
-
-    public CurveOfDeath rod;
+    public Animator Skill2;
         
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        
 	}
 	
     void Update()
     {
-        bool input = Input.GetButton("Fire1");
-
-        shotSpawn1.GetComponent<FireBullets>().Fire = input;
-        shotSpawn2.GetComponent<FireBullets>().Fire = input;
-
-        bool skillinput = Input.GetButtonDown("Fire2");
-
-        if (skillinput)
+        
+        if(Input.GetButtonDown("Fire1"))
         {
-            anim.SetTrigger("SkillActivated");
+            emitter.isEmitting = true;
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            emitter.isEmitting = false;
         }
 
-        bool ringinput = Input.GetButtonDown("Fire3");
+        bool ringInput = Input.GetButtonDown("Fire2");
 
-        if(ringinput)
+        if(ringInput)
         {
-            rod.Fire();
+            Skill1.SetTrigger("Activate");
+        }
+
+        bool spiralInput = Input.GetButtonDown("Fire3");
+
+        if(spiralInput)
+        {
+            //rod.Fire();
+            Skill2.SetTrigger("Activate");
         }
     }
 
@@ -52,6 +53,6 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 dir = input.normalized;
 
-        rb2d.velocity = dir * speed;        
+        rb2d.velocity = dir * speed;
 	}
 }
