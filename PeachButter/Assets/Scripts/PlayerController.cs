@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb2d;
 
-    public Emmiter emitter;
+    public Emitter emitter;
 
     public Animator Skill1;
     

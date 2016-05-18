@@ -72,7 +72,7 @@
     <Compile Include="Assets\Scripts\Danmaku\Bullet.cs" />
     <Compile Include="Assets\Scripts\Danmaku\BulletTypes\StraightShot.cs" />
     <Compile Include="Assets\Scripts\Danmaku\BulletsPool.cs" />
-    <Compile Include="Assets\Scripts\Danmaku\Emmiter.cs" />
+    <Compile Include="Assets\Scripts\Danmaku\Emitter.cs" />
     <Compile Include="Assets\Scripts\Danmaku\Pattern.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>

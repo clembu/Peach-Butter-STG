@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Emmiter : MonoBehaviour {
+public class Emitter : MonoBehaviour {
 
     public BulletsPool bulletPool;
 
