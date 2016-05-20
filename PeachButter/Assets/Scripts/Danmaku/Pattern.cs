@@ -2,38 +2,60 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Danmaku/Pattern")]
 public class Pattern : MonoBehaviour {
 
-    public List<GameObject> gos = new List<GameObject>();
-    List<Emitter> emitters = new List<Emitter>();
+    public List<GameObject> emitterGOs = new List<GameObject>();
+
+    public List<PatternStep> steps = new List<PatternStep>();
     
     public bool activated = false;
-    
+
+    int currentStep = -1;
+
+    public void Activate()
+    {
+        currentStep = 0;
+        Debug.Log("Started pattern.");
+    }
+
     void OnEnable()
     {
-        for (int i = 0; i < gos.Count; i++)
-        {
-            emitters[i] = gos[i].GetComponent<Emitter>();
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < emitters.Count; i++)
+        if(currentStep == -1)
         {
-            emitters[i].isEmitting = activated;
+            return;
+        }
+        if(currentStep >= steps.Count)
+        {
+            return;
+        }
+
+        if(!steps[currentStep].started)
+        {
+            steps[currentStep].Start();
+            Debug.Log("Starting step: " + currentStep);
+        }
+        if (steps[currentStep].ended)
+        {
+            currentStep += 1;
+            Debug.Log("Switching to step: " + currentStep);
         }
     }
 
-    public void PopulateGameObjects()
+    public void PopulateGameObjectsFromChildren()
     {
         List<Emitter> newEmits = new List<Emitter>();
         GetComponentsInChildren<Emitter>(newEmits);
 
         foreach (Emitter e in newEmits)
         {
-            gos.Add(e.gameObject);
+            emitterGOs.Add(e.gameObject);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Danmaku/Bullet")]
 public class Bullet : MonoBehaviour {
 
     public float speed;

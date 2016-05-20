@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     public Emitter emitter;
 
-    public Animator Skill1;
+    public Pattern Skill1;
     
     public Animator Skill2;
         
@@ -23,18 +23,18 @@ public class PlayerController : MonoBehaviour {
         
         if(Input.GetButtonDown("Fire1"))
         {
-            emitter.isEmitting = true;
+            emitter.enabled = true;
         }
         if(Input.GetButtonUp("Fire1"))
         {
-            emitter.isEmitting = false;
+            emitter.enabled = false;
         }
 
         bool ringInput = Input.GetButtonDown("Fire2");
 
         if(ringInput)
         {
-            Skill1.SetTrigger("Activate");
+            Skill1.Activate();
         }
 
         bool spiralInput = Input.GetButtonDown("Fire3");

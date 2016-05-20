@@ -90,17 +90,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PeachButter.CSharp.Plugins.csproj">
-      <Project>{A4149D43-C15D-5724-5121-31D8DAC8C2CB}</Project>
-      <Name>PeachButter.CSharp.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="PeachButter.CSharp.csproj">
       <Project>{F17305B1-28A6-DAE2-497B-C4C4DE484927}</Project>
       <Name>PeachButter.CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="PeachButter.CSharp.Editor.Plugins.csproj">
-      <Project>{A70A4E0B-17F1-3DEE-C64F-30ED51966FC7}</Project>
-      <Name>PeachButter.CSharp.Editor.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

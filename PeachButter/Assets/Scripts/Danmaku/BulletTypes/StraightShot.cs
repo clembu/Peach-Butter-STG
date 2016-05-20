@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Danmaku/Bullet Types/Straight Shot")]
 public class StraightShot : MonoBehaviour {
 
     Bullet bullet;

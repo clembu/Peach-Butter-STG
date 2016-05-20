@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Danmaku/Emitter")]
 public class Emitter : MonoBehaviour {
 
     public BulletsPool bulletPool;
@@ -10,13 +11,13 @@ public class Emitter : MonoBehaviour {
 
     public float fireRate = 0.0f;
 
-    public bool isEmitting = false;
-
+    public bool fireOnce;
+        
     float nextEmit = 0.0f;
 
     void Update()
     {
-        if(isEmitting && Time.time > nextEmit)
+        if(Time.time > nextEmit)
         {
             nextEmit = Time.time + fireRate;
             Emit();
@@ -32,6 +33,8 @@ public class Emitter : MonoBehaviour {
         go.GetComponent<Bullet>().speed = speed;
         go.GetComponent<Bullet>().lifeTime = lifeTime;
         go.SetActive(true);
+
+        if (fireOnce) enabled = false;
     }
     
 }
