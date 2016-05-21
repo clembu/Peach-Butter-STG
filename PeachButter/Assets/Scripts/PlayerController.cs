@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb2d;
 
+	public float power;
+
     public Emitter emitter;
 
     public Pattern Skill1;
@@ -20,7 +22,6 @@ public class PlayerController : MonoBehaviour {
 	
     void Update()
     {
-        
         if(Input.GetButtonDown("Fire1"))
         {
             emitter.enabled = true;
